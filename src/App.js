@@ -2,14 +2,32 @@ import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Header from "./components/Header";
 import CardRental from "./components/Card";
+import ModalDialog from "./components/Modal";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [rentals, setRentals] = useState([]);
+  const [isShowInfo, setIsShowInfo] = useState(false);
   const [form, setForm] = useState({
     name: "",
     key: "",
   });
+
+  const handleChange = (e) => {
+    let set = {};
+    set[e.target.name] = e.target.value;
+    setForm({
+      ...form,
+      ...set,
+    });
+  };
+
+  useEffect(() => {
+    if (form.key.length !== 0 && form.name.length !== 0) {
+      localStorage.setItem("data", JSON.stringify(form));
+    }
+  }, [form]);
 
   return (
     <div className="App">
