@@ -50,6 +50,7 @@ function App() {
           <h1>PLS, Submit the form with your full name & API key</h1>
         )}
       </Container>
+      <ModalDialog isShow={isShowInfo} setIsShow={setIsShowInfo} form={form} />
     </div>
   );
 }
