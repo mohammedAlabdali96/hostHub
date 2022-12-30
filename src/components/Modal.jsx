@@ -42,8 +42,14 @@ function ModalDialog({ isShow, setIsShow, id, apiKey }) {
         <Modal.Body>
           {events.data.length !== 0 ?events.data.map((calenderEvent) => (
             <div className="border m-3 p-3" key={Math.random()}>
-              <h4 className="text-center">{calenderEvent.rental.name}</h4>
-
+              <div className="d-flex justify-content-between">
+                <div className="mx-2">Type:</div>
+                <div className="mx-2">{calenderEvent.type}</div>
+              </div>
+              <div className="d-flex justify-content-between">
+                <div className="mx-2">Nights:</div>
+                <div className="mx-2">{calenderEvent.nights}</div>
+              </div>
               <div className="d-flex justify-content-between">
                 <div className="mx-2">date from:</div>
                 <div className="mx-2">{calenderEvent.date_from}</div>
